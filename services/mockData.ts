@@ -28,6 +28,8 @@ export const matches: MatchProfile[] = [
   { id: 'm2', anonymousId: 'Anon #1293', avatarUrl: 'https://picsum.photos/200/200?random=3', compatibility: 82, status: 'pending', tags: ['Music', 'Art'] },
   { id: 'm3', anonymousId: 'Anon #5511', avatarUrl: 'https://picsum.photos/200/200?random=4', compatibility: 45, status: 'rejected', tags: ['Sports'] },
   { id: 'm4', anonymousId: 'Anon #9910', avatarUrl: 'https://picsum.photos/200/200?random=5', compatibility: 78, status: 'accepted', tags: ['Gaming', 'Tech'] },
+  { id: 'm5', anonymousId: 'Anon #3321', avatarUrl: 'https://picsum.photos/200/200?random=6', compatibility: 88, status: 'pending', tags: ['DeFi', 'Hiking'] },
+  { id: 'm6', anonymousId: 'Anon #7744', avatarUrl: 'https://picsum.photos/200/200?random=7', compatibility: 91, status: 'pending', tags: ['Photography', 'NFTs'] },
 ];
 
 export const messages: Message[] = [
