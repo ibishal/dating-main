@@ -39,11 +39,11 @@ const Chat: React.FC = () => {
   if (!match) return <div>Match not found</div>;
 
   return (
-    <div className="flex flex-col h-[calc(100vh-4rem)] md:h-[calc(100vh-6rem)] bg-white rounded-[2.5rem] shadow-sm overflow-hidden relative">
+    <div className="flex flex-col h-[calc(100vh-4rem)] md:h-[calc(100vh-6rem)] bg-white rounded-[2.5rem] shadow-sm border border-zinc-100 overflow-hidden relative">
       {/* Chat Header */}
       <div className="p-6 border-b border-zinc-50 flex justify-between items-center bg-white z-10">
         <div className="flex items-center gap-4">
-          <button onClick={() => navigate('/matches')} className="w-10 h-10 bg-zinc-50 rounded-full flex items-center justify-center hover:bg-zinc-100">
+          <button onClick={() => navigate('/matches')} className="w-10 h-10 bg-zinc-50 rounded-full flex items-center justify-center hover:bg-zinc-100 text-zinc-900">
             <ArrowLeft size={18} />
           </button>
           <div className="flex items-center gap-3">
@@ -53,13 +53,13 @@ const Chat: React.FC = () => {
              </div>
              <div>
                 <h2 className="text-sm font-bold text-zinc-900">{match.anonymousId}</h2>
-                <div className="flex items-center gap-1 text-[10px] font-mono font-bold text-zinc-400">
+                <div className="flex items-center gap-1 text-[10px] font-mono font-bold text-blue-400">
                    ENCRYPTED_CHANNEL
                 </div>
              </div>
           </div>
         </div>
-        <button className="w-10 h-10 bg-zinc-50 rounded-full flex items-center justify-center hover:bg-zinc-100">
+        <button className="w-10 h-10 bg-zinc-50 rounded-full flex items-center justify-center hover:bg-zinc-100 text-zinc-900">
            <MoreHorizontal size={18} />
         </button>
       </div>
@@ -72,8 +72,8 @@ const Chat: React.FC = () => {
                <div 
                   className={`px-6 py-4 rounded-[1.5rem] text-sm font-medium leading-relaxed ${
                   msg.isMe 
-                     ? 'bg-black text-white rounded-br-none' 
-                     : 'bg-zinc-100 text-zinc-800 rounded-bl-none'
+                     ? 'bg-blue-600 text-white rounded-br-none' 
+                     : 'bg-white text-zinc-800 rounded-bl-none border border-zinc-100 shadow-sm'
                   }`}
                >
                   {msg.text}
@@ -89,7 +89,7 @@ const Chat: React.FC = () => {
 
       {/* Input Area */}
       <div className="p-4 bg-white">
-        <form onSubmit={handleSend} className="bg-zinc-50 p-2 rounded-[2rem] flex gap-2 items-center">
+        <form onSubmit={handleSend} className="bg-zinc-50 p-2 rounded-[2rem] flex gap-2 items-center border border-zinc-100">
           <input 
             type="text"
             value={inputText}
@@ -100,7 +100,7 @@ const Chat: React.FC = () => {
           <button 
             type="submit" 
             disabled={!inputText.trim()}
-            className="p-4 bg-black text-white rounded-full hover:bg-zinc-800 disabled:opacity-50 disabled:cursor-not-allowed transition-transform active:scale-95"
+            className="p-4 bg-blue-600 text-white rounded-full hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed transition-transform active:scale-95"
           >
             <Send size={18} />
           </button>

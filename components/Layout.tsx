@@ -9,8 +9,7 @@ import {
   Search,
   Menu,
   X,
-  Ghost,
-  Sparkles
+  Ghost
 } from 'lucide-react';
 import { currentUser } from '../services/mockData';
 
@@ -41,16 +40,16 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   };
 
   const NavContent = () => (
-    <div className="flex flex-col h-full bg-white rounded-[2rem] p-6 shadow-sm">
+    <div className="flex flex-col h-full bg-white rounded-[2rem] p-6 shadow-sm border border-zinc-100">
       <div className="flex items-center gap-4 mb-8 pl-2">
-        <div className="w-12 h-12 bg-black text-white rounded-full flex items-center justify-center">
+        <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center">
           <Ghost size={24} strokeWidth={2.5} />
         </div>
         <div>
-          <h1 className="font-mono font-bold text-lg leading-tight">NearClaw</h1>
+          <h1 className="font-mono font-bold text-lg leading-tight text-zinc-900">NearClaw</h1>
           <div className="flex items-center gap-2 mt-1">
              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-             <span className="text-xs font-mono text-zinc-500">ONLINE</span>
+             <span className="text-xs font-mono text-zinc-400">ONLINE</span>
           </div>
         </div>
       </div>
@@ -64,8 +63,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             className={({ isActive }) =>
               `flex items-center justify-between px-4 py-3.5 rounded-2xl transition-all duration-300 group ${
                 isActive
-                  ? 'bg-zinc-100 text-black font-bold shadow-sm'
-                  : 'text-zinc-500 hover:bg-zinc-50 hover:text-black'
+                  ? 'bg-blue-50 text-blue-600 font-bold'
+                  : 'text-zinc-500 hover:bg-zinc-50 hover:text-zinc-900'
               }`
             }
           >
@@ -77,7 +76,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                 </div>
                 {item.count && (
                   <span className={`text-[10px] font-mono font-bold px-2 py-1 rounded-full ${
-                    isActive ? 'bg-black text-white' : 'bg-zinc-200 text-zinc-600'
+                    isActive ? 'bg-white text-blue-600 shadow-sm' : 'bg-zinc-100 text-zinc-400'
                   }`}>
                     {item.count}
                   </span>
@@ -99,13 +98,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></span>
           </div>
           <div className="flex-1 min-w-0">
-            <p className="font-mono text-sm font-bold truncate">{currentUser.username}</p>
+            <p className="font-mono text-sm font-bold truncate text-zinc-900">{currentUser.username}</p>
             <p className="text-xs text-zinc-400 font-mono truncate">ID: {currentUser.id}</p>
           </div>
         </div>
         <button 
           onClick={handleLogout}
-          className="w-full flex items-center justify-center gap-2 px-4 py-3 text-sm font-mono font-bold text-red-500 hover:bg-red-50 rounded-xl transition-colors"
+          className="w-full flex items-center justify-center gap-2 px-4 py-3 text-sm font-mono font-bold text-zinc-400 hover:text-red-500 hover:bg-red-50 rounded-xl transition-colors"
         >
           <LogOut size={16} />
           DISCONNECT
@@ -124,10 +123,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       {/* Mobile Header */}
       <div className="md:hidden fixed top-0 left-0 right-0 bg-white/80 backdrop-blur-md border-b border-zinc-100 h-16 flex items-center justify-between px-4 z-30">
         <div className="flex items-center gap-2">
-          <div className="w-8 h-8 bg-black rounded-full flex items-center justify-center text-white">
+          <div className="w-8 h-8 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center">
             <Ghost size={16} />
           </div>
-          <span className="font-mono font-bold">NearClaw</span>
+          <span className="font-mono font-bold text-zinc-900">NearClaw</span>
         </div>
         <button 
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -139,7 +138,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       {/* Mobile Drawer */}
       {isMobileMenuOpen && (
-        <div className="md:hidden fixed inset-0 z-40 bg-black/20 backdrop-blur-sm" onClick={() => setIsMobileMenuOpen(false)}>
+        <div className="md:hidden fixed inset-0 z-40 bg-zinc-900/10 backdrop-blur-sm" onClick={() => setIsMobileMenuOpen(false)}>
           <div 
             className="absolute top-4 left-4 bottom-4 w-72"
             onClick={e => e.stopPropagation()}
